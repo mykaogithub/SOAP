@@ -1,0 +1,31 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jaxws="http://cxf.apache.org/jaxws"
+       xmlns:soap="http://cxf.apache.org/bindings/soap"
+       xsi:schemaLocation=" http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd http://cxf.apache.org/bindings/soap
+	http://cxf.apache.org/schemas/configuration/soap.xsd http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd">
+
+
+
+    <jaxws:server
+            serviceClass="com.kyanja.service.HelloWorld" address="/hello"
+            serviceBean="#hello">
+    </jaxws:server>
+
+    <bean id="hello" class="com.kyanja.service.impl.HelloWorldImpl" />
+
+    <jaxws:server
+            serviceClass="com.kyanja.service.ChangeStudentDetails" address="/student"
+            serviceBean="#changeStudent">
+    </jaxws:server>
+
+    <bean id="changeStudent" class="com.kyanja.service.impl.ChangeStudentDetailsImpl" />
+
+    <jaxws:server
+            serviceClass="com.kyanja.service.CarWebService" address="/carPrice"
+            serviceBean="#carPrice">
+    </jaxws:server>
+
+    <bean id="carPrice" class="com.kyanja.service.impl.CarWebServiceImpl" />
+
+</beans>
